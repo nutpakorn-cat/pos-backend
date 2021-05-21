@@ -136,7 +136,7 @@ router.post('/', async (req, res) => {
     const pdfName = Date.now() + '_' + Math.floor(Math.random() * 100000) + '.pdf';
     doc.save("output/payment/" + pdfName);
 
-    const pdfURL = req.protocol + '://' + req.get('host') + '/payment/' + pdfName;
+    const pdfURL = 'https://' + req.get('host') + '/payment/' + pdfName;
 
     let userName = 'ไม่เป็นสมาชิก';
     let userSurname = '';

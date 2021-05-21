@@ -76,7 +76,7 @@ router.post('/', async (req, res) => {
     const pdfName = Date.now() + '_' + Math.floor(Math.random() * 100000) + '.pdf';
     doc.save("output/report/" + pdfName);
 
-    const pdfURL = req.protocol + '://' + req.get('host') + '/report/' + pdfName;
+    const pdfURL = 'https://' + req.get('host') + '/report/' + pdfName;
 
     await pool.query(
         `INSERT INTO report VALUES(nextval('SystemSerial'), $1, $2, $3, now());`,
