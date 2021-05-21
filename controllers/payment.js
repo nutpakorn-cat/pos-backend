@@ -76,10 +76,13 @@ router.post('/', async (req, res) => {
         );
     }
 
+    let isEnter = false;
+
     discountList.forEach((each) => {
         if (each.discountType == 'money') {
             sum -= each.discountPrice;
         } else if (each.discountType == 'promotion') {
+            isEnter = true;
             cartList.forEach((eachProduct) => {
                 if (eachProduct.productId == each.productId) {
                     sum -= eachProduct.quantity * each.discountPrice;
@@ -105,7 +108,7 @@ router.post('/', async (req, res) => {
 
     doc.addFont("Prompt.ttf", "Prompt", "normal");
     doc.setFont("Prompt");
-    doc.text(JSON.stringify(discountList), 10, 10);
+    doc.text(totalDiscount + ' ' + isEnter, 10, 10);
     doc.text('ใบเสร็จ', 70, 20);
     doc.text('ร้าน ' + system.rows[0].storeName, 70, 30);
 
