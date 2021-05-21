@@ -105,7 +105,7 @@ router.post('/', async (req, res) => {
 
     doc.addFont("Prompt.ttf", "Prompt", "normal");
     doc.setFont("Prompt");
-
+    doc.text(JSON.stringify(discountList), 10, 10);
     doc.text('ใบเสร็จ', 70, 20);
     doc.text('ร้าน ' + system.rows[0].storeName, 70, 30);
 
