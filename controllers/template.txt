@@ -1,0 +1,33 @@
+const express = require('express');
+const router = express.Router();
+
+const pool = require('./../lib/connect-postgresql');
+
+router.post('/authentication', async (req, res) => {
+
+    const {
+        contactId,
+        firstname,
+        lastname,
+        mobile,
+        email,
+        facebook,
+        imageUrl
+    } = req.body;
+
+    const insertContact = new ContactModel({
+        contactId,
+        firstname,
+        lastname,
+        mobile,
+        email,
+        facebook,
+        imageUrl
+    });
+
+    await insertContact.save();
+    res.send({});
+});
+
+
+module.exports = router;
