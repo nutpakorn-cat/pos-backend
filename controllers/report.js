@@ -66,8 +66,6 @@ router.post('/', async (req, res) => {
     i += 10;
     doc.text('ขายได้ ' + paymentOnDay.rows.length + ' การขาย', 70, i);
     i += 10;
-    doc.text('ขายได้ราคาน้อยที่สุด ' + min.toFixed(2) + ' บาท', 70, i);
-    i += 10;
     doc.text('ขายได้ราคาสูงที่สุด ' + max.toFixed(2) + ' บาท', 70, i);
     i += 10;
     i += 10;
